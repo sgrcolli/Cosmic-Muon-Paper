@@ -73,6 +73,23 @@ mcite=true,
 
 \pagenumbering{arabic}
 
+\section{One Sided Cosmic $\mu$ Tomography}
+Cosmic $\mu$ tomography has two distinct types one sided and two sided. Two sided tomography typically requires detectors with much larger area than the object attempting to be measured in order to calculate $\mu$ scattering and vertex reconstruction \cite{schultz_2007}. However the size of the reactor site buildings is far greater than the size of the VIDARR detector as a result one sided cosmic $\mu$ tomography will be used instead seen in figure \ref{fig:oneSidedMuTomography}. DIAPHANE has used one sided cosmic $\mu$ tomography to analyse volcanic mountains seen in figure \ref{fig:DIAPHANE_mountianImages}. The technique DIAPHANE used requires months/years of data via the use of $\mu$ radiography \cite{Marteau_2017}. 
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.5\linewidth]{oneSidedMuTomography.png}
+ \captionof{figure}{A theoretical example of what one sided cosmic $\mu$ tomography looks like. The more material that cosmic $\mu$ have to pass through the lower chance they will be detected by the detector via attenuation.} 
+ \label{fig:oneSidedMuTomography}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=1.0\linewidth]{DIAPHANE_mountainImages.png}
+ \captionof{figure}{Results from DIAPHANE measuring the Soufrière of Guadeloupe from \cite{Marteau_2017}. } 
+ \label{fig:DIAPHANE_mountianImages}
+\end{figure}
+
 \section{Wylfa Reactor Site} \label{sec:wylfaReactorSite}
 During July of 2014 the VIDARR prototype detector started taking data at the Wylfa reactor site. A cut away of the Wylfa reactor building can be seen in figure \ref{fig:WylfaCutAway}. In figure \ref{fig:WylfaCutAway} the structure of the main reactor building is significantly denser in the bottom half of construction than the top half. The upper storage section therefore will block fewer cosmic $\mu$ than bottom section with the reactor. This structure impacts the outline of the shadow as the main reactor building does have less of an effect than some of the service buildings that are closer to the detector. This means that measuring the main reactor building height is more difficult than measuring the height of the service buildings closer to the detector. The position of the detector can be seen from google maps in figure \ref{fig:googleMapsDetector}. There are many buildings that will cast shadows on the detector. This combined with the low density of the upper storage section of the Wylfa reactor building means that the shadow analysis is more complex than might be expected. 
 
@@ -91,7 +108,7 @@ During July of 2014 the VIDARR prototype detector started taking data at the Wyl
 \end{figure}
 
 \section{Geant4 Geometry} \label{sec:geant4Geometry}
-In order to combat the complexity of the reactor site Geant4 is used to simulate each building individually. The overall setup for the buildings in Geant4 can be seen in figures \ref{fig:WylfaSideOnG4} and \ref{fig:WylfaTopDownG4}. Approximations for the sizes in x and y in Geant4 are estimated from the google maps satellite image seen in figure \ref{fig:googleMapsDetector}. The heights of the buildings have to be approximated from the data measured at Wylfa, this is then compared and adjusted until the heights of the shadows roughly match the heights of the shadows at Wylfa. Heights represented in figures \ref{fig:WylfaSideOnG4} and \ref{fig:WylfaTopDownG4} are 25\,m for turbine hall, 45\,m for main reactor building, 45\,m for service towers, 50\,m for back service building, 35\,m for service buildings, 10\,m off the ground for steam bridges with them being 5\,m thick in the z axis. 
+In order to combat the complexity of the reactor site Geant4 \cite{Agostinelli:2002hh} is used to simulate each building individually. The overall setup for the buildings in Geant4 can be seen in figures \ref{fig:WylfaSideOnG4} and \ref{fig:WylfaTopDownG4}. Approximations for the sizes in x and y in Geant4 are estimated from the google maps satellite image seen in figure \ref{fig:googleMapsDetector}. The heights of the buildings have to be approximated from the data measured at Wylfa, this is then compared and adjusted until the heights of the shadows roughly match the heights of the shadows at Wylfa. Heights represented in figures \ref{fig:WylfaSideOnG4} and \ref{fig:WylfaTopDownG4} are 25\,m for turbine hall, 45\,m for main reactor building, 45\,m for service towers, 50\,m for back service building, 35\,m for service buildings, 10\,m off the ground for steam bridges with them being 5\,m thick in the z axis. 
 
 \begin{figure}[H]
  \centering
@@ -110,13 +127,15 @@ The cosmic $\mu$ tracks are reconstructed with a custom built tracker. The track
 \begin{description}
   \item[1.] Exclude all hits below 0.345\,MeV
   \item[2.] Exclude hits that are 4 bars away from any other hit 
-  \item[3.] Exclude events 4 bars per side that are above a 0.69\,MeV threshold
+  \item[3.] Exclude events that have $<$ 4 bars per side that are above a 0.69\,MeV threshold
   \item[4.] Find a basic gradient and intercept using top and bottom hit of the event
   \item[5.] First basic fit of the track 
   \item[6.] Exclude hits that are 4.5 bars away from the track and do second fit 
   \item[7.] Exclude any hits that are 0.5 bars away from the track
   \item[8.] Third and final fit 
 \end{description}
+
+For the following analysis showering events were considered as well. This is due to the low statistics when taking cosmic $\mu$ in accidental coincidence. For calibration a $\chi^2$ cut would also be implemented. 
 
 \section{Ratios of Measured and Simulated Data Sets} \label{sec:RatiosOfMeasuredAndSimulatedDataSets}
 In order to highlight the shadows effectively taking the ratio of two data sets is required. Figure \ref{fig:pvtWylfaAndLiverpool} shows the distortion inherent to analysing the cosmic $\mu$ distribution with the detector both at Liverpool (\ref{subFig:pvtLiverpool}) and at Wylfa (\ref{subFig:pvtWylfa}). This distortion has 3 main components Firstly the cosmic $\mu$ distribution is a spherical distribution which is being analysed by a cubiod shaped detector. Secondly the VIDARR prototype segments were 4\,cm wide by 1\,cm tall by 152\,cm long as a result there is a limit to the angular resolution which causes bin migration. This bin migration is most clearly seen in bins $\phi$ = 0$^\circ$, $\phi$ =  90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$ in both figure \ref{subFig:pvtLiverpool} and figure \ref{subFig:pvtWylfa}. Thirdly there is significant scattering as the cosmic $\mu$ interact with the atmosphere and buildings which causes blurred edges. Therefore the shadows in the wylfa data set in figure \ref{subFig:pvtWylfa} are significantly fainter than would be expected for such large and dense buildings.  
@@ -141,7 +160,7 @@ In order to highlight the shadows effectively taking the ratio of two data sets 
 \label{fig:pvtWylfaAndLiverpool}
 \end{figure}
 
-At the Wylfa reactor site there are several buildings and features that are expected to produce shadows which figure \ref{fig:wylfaTraceOfBuildings} shows with a corresponding key. By simulating each building in Geant4 it is possible to obtain an outline of each building shown in figure \ref{fig:wylfaTraceOfBuildings} as it would be visible to the detector. Then all the buildings can be simulated at once taking the ratio both with and without the buildings highlighting the outline in $\phi$ and $\theta$ as it appears to the detector which figure \ref{fig:simulatedBuildingsThetaPhi} shows. Finally the Wylfa data is then divided by the Liverpool data which is normalised to the number of events in the Wylfa data set this produces the results seen in figure \ref{fig:measuredBuildingsThetaPhi} each component is then visible for each individual building. The simulated 360$^\circ$ panoramic (figure \ref{fig:simulatedBuildingsThetaPhi}) and the measured 360$^\circ$ panoramic (figure \ref{fig:measuredBuildingsThetaPhi}) match each other very closely. Suggesting the shadows shown in figure \ref{fig:measuredBuildingsThetaPhi} are likely an accurate representation of the Wylfa reactor site.
+According to the CRY library \cite{ieee_cry_2007} 161867 $\mu^-$ and 174291 $\mu^+$ are produced in 2824.79\,s for 1 m\,$^2$ VIDARR's area is 1.52\,m $\times$ 1.52\,m = 2.3104\,m$^2$ resulting in $\sim$ 275 muons s$^{-1}$ the Wylfa data has O 10$^6$ events and so is only $\sim$ 1 hours worth of live time. At the Wylfa reactor site there are several buildings and features that are expected to produce shadows which figure \ref{fig:wylfaTraceOfBuildings} shows with a corresponding key. By simulating each building in Geant4 it is possible to obtain an outline of each building shown in figure \ref{fig:wylfaTraceOfBuildings} as it would be visible to the detector. Then all the buildings can be simulated at once taking the ratio both with and without the buildings highlighting the outline in $\phi$ and $\theta$ as it appears to the detector which figure \ref{fig:simulatedBuildingsThetaPhi} shows. Finally the Wylfa data is then divided by the Liverpool data which is normalised to the number of events in the Wylfa data set this produces the results seen in figure \ref{fig:measuredBuildingsThetaPhi} each component is then visible for each individual building. The simulated 360$^\circ$ panoramic (figure \ref{fig:simulatedBuildingsThetaPhi}) and the measured 360$^\circ$ panoramic (figure \ref{fig:measuredBuildingsThetaPhi}) match each other very closely. Suggesting the shadows shown in figure \ref{fig:measuredBuildingsThetaPhi} are likely an accurate representation of the Wylfa reactor site.
 \\\\The feature of most interest is the reactor core which is shown by the thin red line in figure \ref{fig:measuredBuildingsThetaPhi}. This feature is however significantly taller than would be expected it is therefore assumed that the reactor core apparatus is also adding to the shadow as well. The reactor core shielding can also be seen around the core at lower angles of $\theta$ = 20$^\circ$ and $\theta$ = 25$^\circ$ also highlighting the core's position effectively. With the other buildings accounted for in the shadow it is reasonable to assume that this feature is the reactor core. 
 
 \begin{figure}[H]
@@ -165,14 +184,22 @@ At the Wylfa reactor site there are several buildings and features that are expe
  \label{fig:measuredBuildingsThetaPhi}
 \end{figure}
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=1.0\linewidth]{wylfaReactorBuildings/wylfaTrace+overlay+key.png}
+ \captionof{figure}{Figure \ref{fig:wylfaTraceOfBuildings} with an overlay of measured data from the Wylfa reactor site highlighting the main reactor building turbine hall and reactor core area.} 
+ \label{fig:wylfaTraceOfBuildings+overlay}
+\end{figure}
+
 \section{Conclusion} \label{sec:Conclusion}
-The VIDARR prototype has measured the shadows at the Wylfa reactor site and these measurements correspond very well with simulated building positions. These simulated building positions have then helped to inform building heights and specific features at the Wylfa site including the shadow of the reactor core and the reactor core apparatus.
+ The VIDARR prototype has measured the shadows at the Wylfa reactor site and these measurements correspond very well with simulated building positions. These simulated building positions have then helped to inform building heights and specific features at the Wylfa site including the shadow of the reactor core and the reactor core apparatus. In addition this is possible with only $\sim$ 1 hours worth of data at the Wylfa reactor site.
+
 
 \section{Appendix} \label{sec:appendix}
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{ReconstructedPhiTheta/pvsTFiduicalHemisphere.png}
- \captionof{figure}{Simulated cosmic hemisphere for $\phi$ vs $\theta$ to show that the effects seen in figures \ref{fig:simulatedBuildingsThetaPhi} and \ref{fig:measuredBuildingsThetaPhi} are not a result of the cosmic tracker malfunctioning. \hl{maybe replace with a CRY distribution}} 
+ \captionof{figure}{Simulated cosmic hemisphere for $\phi$ vs $\theta$ to show that the effects seen in figures \ref{fig:simulatedBuildingsThetaPhi} and \ref{fig:measuredBuildingsThetaPhi} are not a result of the cosmic tracker malfunctioning.} 
  \label{fig:pvstFiducialHem}
 \end{figure}
 
@@ -197,6 +224,45 @@ The VIDARR prototype has measured the shadows at the Wylfa reactor site and thes
  \label{fig:wyflaMeasuredPvtNoBoxes}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{sidesAB/liverpoolSideAHits.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side A bars and layers hit at the University of Liverpool.}
+  \label{subFig:pvtLiverpool}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{sidesAB/liverpoolSideBHits.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side B bars and layers hit at the University of Liverpool.}
+  \label{subFig:pvtWylfa}
+\end{subfigure}
+\caption{Sides A and B cosmic hits at University of Liverpool mostly uniform slightly cool at the corners.}
+\label{fig:pvtWylfaAndLiverpool}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{sidesAB/sideABarsAndLayersWylfa.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side A bars and layers hit at the Wylfa reactor site.}
+  \label{subFig:pvtLiverpool}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{sidesAB/sideBBarsAndLayersWylfa.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side B bars and layers hit at the Wylfa reactor site.}
+  \label{subFig:pvtWylfa}
+\end{subfigure}
+\caption{Sides A and B cosmic hits at the Wylfa reactor site mostly uniform slightly cool at the corners. Side B has a noisy channel at bar no. 36 but this shouldn't affect results.}
+\label{fig:pvtWylfaAndLiverpool}
+\end{figure}
 
 %\bibliography{refs} 
 %\bibliographystyle{ieeetr}
