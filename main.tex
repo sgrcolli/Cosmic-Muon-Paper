@@ -62,7 +62,7 @@ mcite=true,
 % \newpage
 % \pagenumbering{roman}
 \begin{abstract}
-\normalsize During the deployment at Wylfa between 2014 -- 2016 a prototype anti-neutrino detector took cosmic muon data in accidental coincidence with the anti-neutrino measurements. From 2016 -- 2018 the same detector took data at the University of Liverpool. By taking the ratio of these two data sets and using Geant4 simulations it is possible to discern specific buildings, building heights, and features at the Wylfa reactor site including the reactor core/reactor core apparatus.\\
+\normalsize During the deployment at Wylfa between 2014 -- 2016 a prototype anti-neutrino detector (a prototype of VIDARR) took cosmic muon data in accidental coincidence with the anti-neutrino measurements. From 2016 -- 2018 the same detector took data at the University of Liverpool. By taking the ratio of these two data sets and using Geant4 simulations it is possible to discern specific buildings, building heights, and features at the Wylfa reactor site including the reactor core/reactor core apparatus.\\
 
 \providecommand{\keywords}[1]{\textbf{\textit{Keywords:}} #1} %Keywords command has to be supplied manually
 \keywords{Monte Carlo, Geant4, cosmic muon tomography}
@@ -73,13 +73,16 @@ mcite=true,
 
 \pagenumbering{arabic}
 
+\section{A Brief Overview of the Detector}
+The 1 tonne scale anti-neutrino detector deployed at the Wylfa reactor site was $\sim$ 60\,m from the 1.5\,GW$_{th}$ reactor. It was a prototype of the VIDARR detector based on the ND280 electromagnetic calorimeter from T2K. Using segmented extruded plastic scintillator and Hamamatsu Multi-Pixel Photon Counters (MPPCs). The detector had 49 layers of plastic scintillator which alternated being at 90$^\circ$ from the previous layer. The active detector region has gadolinium sheets in-between the layers of plastic in order to capture neutrons and analyse the anti-neutrinos through inverse $\beta$ decay. Muons interact with the detector as minimally ionising particles (MIPs) as determined by the Bethe-Bloch formula. Muons were primarily as a calibration tool at the beginning of the deployment\cite{Carroll_2018}. During the main deployment at Wylfa cosmic muons (both $\mu^+$ and $\mu^-$ as the detector cannot distinguish between the two) are mostly excluded via a cosmic muon veto in order to reduce background when measuring anti-neutrinos. As a result the amount of information available is significantly less than the 20 month period of deployment at Wylfa would suggest. Instead the number of cosmic muon events is more proportional to $sim$ 3 hours worth of live time. 
+ 
 \section{One Sided Cosmic $\mu$ Tomography}
 Cosmic $\mu$ tomography has two distinct types one sided and two sided. Two sided tomography typically requires detectors with much larger area than the object attempting to be measured in order to calculate $\mu$ scattering and vertex reconstruction \cite{schultz_2007}. However the size of the reactor site buildings is far greater than the size of the VIDARR detector as a result one sided cosmic $\mu$ tomography will be used instead seen in figure \ref{fig:oneSidedMuTomography}. DIAPHANE has used one sided cosmic $\mu$ tomography to analyse volcanic mountains seen in figure \ref{fig:DIAPHANE_mountianImages}. The technique DIAPHANE used requires months/years of data via the use of $\mu$ radiography \cite{Marteau_2017}. 
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.5\linewidth]{oneSidedMuTomography.png}
- \captionof{figure}{A theoretical example of what one sided cosmic $\mu$ tomography looks like. The more material that cosmic $\mu$ have to pass through the lower chance they will be detected by the detector via attenuation.} 
+ \captionof{figure}{A top down theoretical example of what one sided cosmic $\mu$ tomography looks like. The more material that cosmic $\mu$ have to pass through the lower chance they will be detected via attenuation.} 
  \label{fig:oneSidedMuTomography}
 \end{figure}
 
@@ -160,7 +163,7 @@ In order to highlight the shadows effectively taking the ratio of two data sets 
 \label{fig:pvtWylfaAndLiverpool}
 \end{figure}
 
-According to the CRY library \cite{ieee_cry_2007} 161867 $\mu^-$ and 174291 $\mu^+$ are produced in 2824.79\,s for 1 m\,$^2$ VIDARR's area is 1.52\,m $\times$ 1.52\,m = 2.3104\,m$^2$ resulting in $\sim$ 275 muons s$^{-1}$ the Wylfa data has O 10$^6$ events and so is only $\sim$ 1 hours worth of live time. At the Wylfa reactor site there are several buildings and features that are expected to produce shadows which figure \ref{fig:wylfaTraceOfBuildings} shows with a corresponding key. By simulating each building in Geant4 it is possible to obtain an outline of each building shown in figure \ref{fig:wylfaTraceOfBuildings} as it would be visible to the detector. Then all the buildings can be simulated at once taking the ratio both with and without the buildings highlighting the outline in $\phi$ and $\theta$ as it appears to the detector which figure \ref{fig:simulatedBuildingsThetaPhi} shows. Finally the Wylfa data is then divided by the Liverpool data which is normalised to the number of events in the Wylfa data set this produces the results seen in figure \ref{fig:measuredBuildingsThetaPhi} each component is then visible for each individual building. The simulated 360$^\circ$ panoramic (figure \ref{fig:simulatedBuildingsThetaPhi}) and the measured 360$^\circ$ panoramic (figure \ref{fig:measuredBuildingsThetaPhi}) match each other very closely. Suggesting the shadows shown in figure \ref{fig:measuredBuildingsThetaPhi} are likely an accurate representation of the Wylfa reactor site.
+According to the CRY library \cite{ieee_cry_2007} 161867 $\mu^-$ and 174291 $\mu^+$ are produced in 2824.79\,s for 1 m\,$^2$ VIDARR's area is 1.52\,m $\times$ 1.52\,m = 2.3104\,m$^2$ resulting in $\sim$ 275 muons s$^{-1}$ the Wylfa data has $\sim$ 3 $\times$ 10$^6$ events and so is only $\sim$ 3 hours worth of live time. At the Wylfa reactor site there are several buildings and features that are expected to produce shadows which figure \ref{fig:wylfaTraceOfBuildings} shows with a corresponding key. By simulating each building in Geant4 it is possible to obtain an outline of each building shown in figure \ref{fig:wylfaTraceOfBuildings} as it would be visible to the detector. Then all the buildings can be simulated at once taking the ratio both with and without the buildings highlighting the outline in $\phi$ and $\theta$ as it appears to the detector which figure \ref{fig:simulatedBuildingsThetaPhi} shows. Finally the Wylfa data is then divided by the Liverpool data which is normalised to the number of events in the Wylfa data set this produces the results seen in figure \ref{fig:measuredBuildingsThetaPhi} each component is then visible for each individual building. The simulated 360$^\circ$ panoramic (figure \ref{fig:simulatedBuildingsThetaPhi}) and the measured 360$^\circ$ panoramic (figure \ref{fig:measuredBuildingsThetaPhi}) match each other very closely. Suggesting the shadows shown in figure \ref{fig:measuredBuildingsThetaPhi} are likely an accurate representation of the Wylfa reactor site.
 \\\\The feature of most interest is the reactor core which is shown by the thin red line in figure \ref{fig:measuredBuildingsThetaPhi}. This feature is however significantly taller than would be expected it is therefore assumed that the reactor core apparatus is also adding to the shadow as well. The reactor core shielding can also be seen around the core at lower angles of $\theta$ = 20$^\circ$ and $\theta$ = 25$^\circ$ also highlighting the core's position effectively. With the other buildings accounted for in the shadow it is reasonable to assume that this feature is the reactor core. 
 
 \begin{figure}[H]
@@ -191,9 +194,11 @@ According to the CRY library \cite{ieee_cry_2007} 161867 $\mu^-$ and 174291 $\mu
  \label{fig:wylfaTraceOfBuildings+overlay}
 \end{figure}
 
+\section{Application to Reactor Monitoring} \label{sec:ApplicationToReactorMonitoring}
+Anti-neutrinos cannot be blocked by any material, due to their small cross section of the order 10$^{-42}$ cm$^2$ \cite{Vogel_1999}. It is even possible for neutrinos to traverse through planet Earth without interacting with any matter \hl{citation needed}. As a result the only way to potentially mask the number of anti-neutrinos being measured by an anti-neutrino detector is to physically move the detector. For example moving the detector twice as close would correlate to an anti-neutrino rate four times higher if the power generation were to remain consistent via the squared law. However, it would be possible for an unscrupulous reactor site to reduce power by a factor 4 and in such an instance and prevent burn up of illicit materials \hl{citation needed}. But if the VIDARR detector were to switch into cosmic mode for 1 hour every week this would not be possible as the change in position would be highly noticeable and 1 week is not enough to produce illicit bomb grade material \hl{citation needed}. 
+
 \section{Conclusion} \label{sec:Conclusion}
  The VIDARR prototype has measured the shadows at the Wylfa reactor site and these measurements correspond very well with simulated building positions. These simulated building positions have then helped to inform building heights and specific features at the Wylfa site including the shadow of the reactor core and the reactor core apparatus. In addition this is possible with only $\sim$ 1 hours worth of data at the Wylfa reactor site.
-
 
 \section{Appendix} \label{sec:appendix}
 \begin{figure}[H]
