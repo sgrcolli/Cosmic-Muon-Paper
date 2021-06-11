@@ -62,7 +62,7 @@ mcite=true,
 % \newpage
 % \pagenumbering{roman}
 \begin{abstract}
-\normalsize During the deployment at Wylfa between 2014 -- 2016 a prototype anti-neutrino detector (a prototype of VIDARR) took cosmic muon data in accidental coincidence with the anti-neutrino measurements. From 2016 -- 2018 the same detector took data at the University of Liverpool. By taking the ratio of these two data sets and using Geant4 simulations it is possible to discern specific buildings, building heights, and features at the Wylfa reactor site including the reactor core/reactor core apparatus.\\
+\normalsize During the deployment at Wylfa between 2014 -- 2016 a prototype anti-neutrino detector (a prototype of VIDARR) took cosmic muon data in accidental coincidence with the anti-neutrino measurements. From 2016 -- 2018 the same detector took data at the University of Liverpool. By taking the ratio of these two data sets and using Geant4 simulations it is possible to discern specific buildings, building heights, and features at the Wylfa reactor site including the reactor core/reactor core apparatus using $\sim$ 3 hours worth of cosmic muon data.\\
 
 \providecommand{\keywords}[1]{\textbf{\textit{Keywords:}} #1} %Keywords command has to be supplied manually
 \keywords{Monte Carlo, Geant4, cosmic muon tomography}
@@ -74,10 +74,10 @@ mcite=true,
 \pagenumbering{arabic}
 
 \section{A Brief Overview of the Detector}
-The 1 tonne scale anti-neutrino detector deployed at the Wylfa reactor site was $\sim$ 60\,m from the 1.5\,GW$_{th}$ reactor. It was a prototype of the VIDARR detector based on the ND280 electromagnetic calorimeter from T2K. Using segmented extruded plastic scintillator and Hamamatsu Multi-Pixel Photon Counters (MPPCs). The detector had 49 layers of plastic scintillator which alternated being at 90$^\circ$ from the previous layer. The active detector region has gadolinium sheets in-between the layers of plastic in order to capture neutrons and analyse the anti-neutrinos through inverse $\beta$ decay. Muons interact with the detector as minimally ionising particles (MIPs) as determined by the Bethe-Bloch formula. Muons were primarily as a calibration tool at the beginning of the deployment\cite{Carroll_2018}. During the main deployment at Wylfa cosmic muons (both $\mu^+$ and $\mu^-$ as the detector cannot distinguish between the two) are mostly excluded via a cosmic muon veto in order to reduce background when measuring anti-neutrinos. As a result the amount of information available is significantly less than the 20 month period of deployment at Wylfa would suggest. Instead the number of cosmic muon events is more proportional to $sim$ 3 hours worth of live time. 
+The 1 tonne scale anti-neutrino detector deployed at the Wylfa reactor site was $\sim$ 60\,m from the 1.5\,GW$_{th}$ reactor. It was a prototype of the VIDARR detector based on the ND280 electromagnetic calorimeter from T2K. Using segmented extruded plastic scintillator and Hamamatsu Multi-Pixel Photon Counters (MPPCs). The detector had 49 layers of plastic scintillator which alternated being at 90$^\circ$ from the previous layer. The active detector region has gadolinium sheets in-between the layers of plastic in order to capture neutrons and analyse the anti-neutrinos through inverse $\beta$ decay. Muons interact with the detector as minimally ionising particles (MIPs) as determined by the Bethe-Bloch formula. Muons were primarily as a calibration tool at the beginning of the deployment\cite{Carroll_2018}. During the main deployment at Wylfa cosmic muons (both $\mu^+$ and $\mu^-$ as the detector cannot distinguish between the two) are mostly excluded via a cosmic muon veto in order to reduce background when measuring anti-neutrinos. As a result the amount of information available is significantly less than the 20 month period of deployment at Wylfa would suggest. Instead the number of cosmic muon events is more proportional to $\sim$ 3 hours worth of live time. 
  
 \section{One Sided Cosmic $\mu$ Tomography}
-Cosmic $\mu$ tomography has two distinct types one sided and two sided. Two sided tomography typically requires detectors with much larger area than the object attempting to be measured in order to calculate $\mu$ scattering and vertex reconstruction \cite{schultz_2007}. However the size of the reactor site buildings is far greater than the size of the VIDARR detector as a result one sided cosmic $\mu$ tomography will be used instead seen in figure \ref{fig:oneSidedMuTomography}. DIAPHANE has used one sided cosmic $\mu$ tomography to analyse volcanic mountains seen in figure \ref{fig:DIAPHANE_mountianImages}. The technique DIAPHANE used requires months/years of data via the use of $\mu$ radiography \cite{Marteau_2017}. 
+Cosmic $\mu$ tomography has two distinct types one sided and two sided. Two sided tomography requires two detectors with an area larger than the object attempting to be measured in order to calculate $\mu$ scattering and vertex reconstruction \cite{schultz_2007}. This approach can work for analysing nuclear waste \cite{Jonkmans_2013} and even in some cases even reactors \cite{miyadera2013imaging}. However the size of the reactor site buildings is far greater than the size of the VIDARR prototype and there was only one unit deployed as a result one sided cosmic $\mu$ tomography will be used instead seen in figure \ref{fig:oneSidedMuTomography}. DIAPHANE has used one sided cosmic $\mu$ tomography to analyse volcanic mountains seen in figure \ref{fig:DIAPHANE_mountianImages}. The technique DIAPHANE used requires months/years of data via the use of $\mu$ radiography \cite{Marteau_2017}. In addition there is the MU-RAY experiment which uses similar technology to both VIDARR and DIAPHANE with extruded plastic scintillating bars and WLS fibres read out by SiPMs but with triangular cross sections instead of the rectangular cross sections seen in VIDARR and DIAPHANE \cite{ANASTASIO2013423}. MU-RAY has imaged Mt Vesuvius using a ``Transmission'' histogram shown in figure \ref{fig:murayTransmissionNoCaption} which shows the ratio between the sky and the area where the mountain is situated \cite{Ambrosino_2014}. This technique has also been adopted in this paper.
 
 \begin{figure}[H]
  \centering
@@ -92,6 +92,14 @@ Cosmic $\mu$ tomography has two distinct types one sided and two sided. Two side
  \captionof{figure}{Results from DIAPHANE measuring the Soufrière of Guadeloupe from \cite{Marteau_2017}. } 
  \label{fig:DIAPHANE_mountianImages}
 \end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.75\linewidth]{murayTransmissionNoCaption.jpg}
+ \captionof{figure}{Top: The transmission histogram of Mt Vesuvius after one week of data taking. Bottom: a picture of Mt Vesuvius taken by the telescope observation point from \cite{Ambrosino_2014}. $\sim$ 1 weeks worth of data.} 
+ \label{fig:murayTransmissionNoCaption}
+\end{figure}
+
 
 \section{Wylfa Reactor Site} \label{sec:wylfaReactorSite}
 During July of 2014 the VIDARR prototype detector started taking data at the Wylfa reactor site. A cut away of the Wylfa reactor building can be seen in figure \ref{fig:WylfaCutAway}. In figure \ref{fig:WylfaCutAway} the structure of the main reactor building is significantly denser in the bottom half of construction than the top half. The upper storage section therefore will block fewer cosmic $\mu$ than bottom section with the reactor. This structure impacts the outline of the shadow as the main reactor building does have less of an effect than some of the service buildings that are closer to the detector. This means that measuring the main reactor building height is more difficult than measuring the height of the service buildings closer to the detector. The position of the detector can be seen from google maps in figure \ref{fig:googleMapsDetector}. There are many buildings that will cast shadows on the detector. This combined with the low density of the upper storage section of the Wylfa reactor building means that the shadow analysis is more complex than might be expected. 
@@ -227,6 +235,13 @@ Anti-neutrinos cannot be blocked by any material, due to their small cross secti
  \includegraphics[width=1.0\linewidth]{panoramicReults/4CutRatioWylfaDivLivWide.png}
  \captionof{figure}{figure \ref{fig:measuredBuildingsThetaPhi} without the coloured boxes showing the components of the shadows.} 
  \label{fig:wyflaMeasuredPvtNoBoxes}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.75\linewidth]{mtVesuviusMuRayNoCaption.png}
+ \captionof{figure}{Vesuvius rock thickness, expressed in m, as seen from an observation point at $\sim$ 800\,m altitude using $\sim$ 1 months worth of data from MU-RAY \cite{Ambrosino_2014}. } 
+ \label{fig:mtVesuviusMuRay}
 \end{figure}
 
 \begin{figure}[H]
